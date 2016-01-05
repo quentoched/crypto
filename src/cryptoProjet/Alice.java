@@ -56,6 +56,7 @@ public class Alice {
     }
     
      public BigInteger decrypt(BigInteger mes){
+//         r = mes.modPow(n.subtract(BigInteger.ONE), phi).mod(n);
         BigInteger decrypt = ((r.modPow(n, n.pow(2)).modInverse(n.pow(2))).multiply(mes).mod(n.pow(2))).subtract(BigInteger.ONE).divide(n);
     
         System.out.println("Alice : decrypt -> " + decrypt);

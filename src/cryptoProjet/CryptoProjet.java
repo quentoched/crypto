@@ -27,9 +27,6 @@ public class CryptoProjet {
         
         // Bob enlève le random
         BigInteger finalRes = b.removeRand(resRand);
-        
-        System.out.println(finalRes);
-        
     }
     
     public static boolean estPremierFermat(BigInteger n){

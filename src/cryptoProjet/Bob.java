@@ -29,23 +29,17 @@ public class Bob {
         do {
             r = new BigInteger(n.bitLength(), new Random());
         } while (r.compareTo(n) >= 0);
-        
-//        this.r  = new BigInteger("2");
-        
-        BigInteger resRand = res.modPow(r, n.pow(2)); //doit-on ajouter mod(n) ?
+                
+        BigInteger resRand = res.modPow(r, n.pow(2));
         
         System.out.println("Bob : j'ajoute un random -> " + resRand);
-        
-//        BigInteger rr = (resRand.multiply(n).add(BigInteger.ONE)).multiply(r.modPow(n, n.pow(2))).mod(n.pow(2));
-//        System.out.println("Bob : message encrypté -> " + rr);
 
-        return resRand; // doit-on encrypter ?
+        return resRand;
     }
 
     BigInteger removeRand(BigInteger resRand) {     
-//        BigInteger R = (r.multiply(n).add(BigInteger.ONE)).multiply(r.modPow(n, n.pow(2))).mod(n.pow(2));
         System.out.println("Bob : le random vaut -> " + r);
-        BigInteger fin = resRand.divide(r); // doit-on ajouter mod(n) ?
+        BigInteger fin = resRand.subtract(r).mod(n); // doit-on ajouter mod(n) ?
         System.out.println("Bob : j'enlève le random -> " + fin);
         return fin;
     }
